@@ -17,7 +17,7 @@
 // console.log('total after subtract',check.removestock(10))
 // console.log('final',check.getstock())
 
-
+// // another
 // const orders = [
 //   { id: 101, category: "electronics", price: 300, delivered: true },
 //   { id: 102, category: "clothing", price: 50, delivered: true },
@@ -32,14 +32,21 @@
 //   .reduce((acc, current) => acc +current.price ,0);
 // console.log(test);
 
-async function userposts(userID) {
-  try {
-    let response= await fetch("https://jsonplaceholder.typicode.com/posts");
-    let data= await response.json()
-    let cleardata=data.filter(post=>post.userId===userID).map(post=>({id: post.id, title: post.title}))
-    console.log(cleardata)
-  } catch (error) {
-    return ('error')
-  }
+// //another
+
+// async function userposts(userID) {
+//   try {
+//     let response= await fetch("https://jsonplaceholder.typicode.com/posts");
+//     let data= await response.json()
+//     let cleardata=data.filter(post=>post.userId===userID).map(post=>({id: post.id, title: post.title}))
+//     console.log(cleardata)
+//   } catch (error) {
+//     return ('error')
+//   }
+// }
+// userposts(1)
+let text='';
+for (let i = 5; i>=0; i--) {
+  text=text+'*';
+  console.log(text);
 }
-userposts(1)
