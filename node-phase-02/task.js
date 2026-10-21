@@ -21,7 +21,7 @@ async function addPlayer(name, scores) {
       throw error;
     }
   }
-  mall.push('loro,546')
+  mall.push('hulli,546')
   await fs.writeFile(file,JSON.stringify(mall,null,2))
 }
 addPlayer("notgonnalie", 400);
