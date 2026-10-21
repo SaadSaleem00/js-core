@@ -1,0 +1,4 @@
+GET /home 200
+POST /login 302
+GET /about 200
+GET /missing 404
