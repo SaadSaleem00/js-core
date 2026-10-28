@@ -3,7 +3,7 @@ const path = require("path");
 const { constrainedMemory } = require("process");
 
 async function addPlayer(name, scores) {
-    const file = path.join(__dirname, "loro.json");
+    const file = path.join(__dirname, "ssss.json");
     let mall;
     let ids;
   try {
@@ -21,7 +21,7 @@ async function addPlayer(name, scores) {
       throw error;
     }
   }
-  mall.push('hulli,546')
+  mall.push({name:name,scores:scores})
   await fs.writeFile(file,JSON.stringify(mall,null,2))
 }
 addPlayer("notgonnalie", 400);
