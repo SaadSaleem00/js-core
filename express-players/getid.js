@@ -38,7 +38,7 @@ app.delete("/players/:id", async (req, res) => {
         return res.status(404).json({error:'no such book found'})
     }else{
         console.error(error)
-        return res.status(500).json({error:'server error'})
+        return res.status(500).json({error:'server error'});
     }
   }
   let book=convert.find((n)=>n.id===id)
