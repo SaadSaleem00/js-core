@@ -1,0 +1,6 @@
+[2026-10-09 08:00] INFO Server started on port 3000
+[2026-10-09 08:01] ERROR Failed to connect to Database
+[2026-10-09 08:02] INFO Retrying connection
+[2026-10-09 08:03] ERROR Timeout waiting for host
+[2026-10-09 08:04] WARN Memory usage high
+[2026-10-09 08:05] ERROR Out of memory

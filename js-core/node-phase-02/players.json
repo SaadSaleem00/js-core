@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "saad",
+    "score": 150
+  },
+  {
+    "id": 2,
+    "name": "ghost",
+    "score": 300
+  },
+  {
+    "id": 3,
+    "name": "viper",
+    "score": 450
+  },
+  {
+    "id": 4,
+    "name": "viki",
+    "score": 800
+  },
+  {
+    "id": 5,
+    "name": "sakura",
+    "score": 500
+  },
+  {
+    "id": 6,
+    "name": "sakur",
+    "score": 500
+  }
+]

@@ -1,0 +1,303 @@
+// // // // let playerA=100
+// // // // let playerB=playerA
+// // // // // playerB=50
+// // // // console.log(playerB);
+
+// // // let playerA1={hp:10,ammo:60}
+// // // // let playerB1={hp:50,ammo:20}
+
+// // // let playerB1=playerA1
+// // // playerB1.hp=89
+// // // playerB1.ammo=0
+// // // console.log(playerB1.hp,playerB1.ammo,playerA1)
+
+// // // how to use spread operator
+// // let playerA ={ammo:50,stat:{hp:10}}
+// // let playerB={...playerA,lvl:5}
+// // playerB.stat.hp=4
+// // // console.log(playerA.stat.hp,playerB.lvl)
+// // // console.log(playerB)
+
+// // const deepconstplayer=structuredClone(playerA)
+// // deepconstplayer.stat.hp=89
+// // deepconstplayer.ammo=0
+// // console.log(deepconstplayer)
+// // console.log(playerA)
+
+// // let filter=memoryAddresses.filter(entry=>entry.address==='0x003')
+// // console.log(filter)
+
+// // for(let i in memoryAddresses){
+//     //     if(memoryAddresses[i].value===12){
+//         //         console.log(memoryAddresses[i])
+//         //     }
+//         // }
+//         const memoryAddresses = [
+//           { address: "0x001", value: 100 },
+//           { address: "0x002", value: 45 },
+//           { address: "0x003", value: 100 },
+//           { address: "0x004", value: 12 }
+//         ];
+
+// for(let i=0;i<=memoryAddresses.length-1;i++){
+//     if(memoryAddresses[i].value===12){
+//         memoryAddresses[i].value=9999
+//         console.log(memoryAddresses[i].value)
+//     }
+// }
+const memoryAddresses = [
+  { address: "0x001", value: 100 },
+  { address: "0x002", value: 50 },
+  { address: "0x003", value: 100 },
+  { address: "0x004", value: 25 },
+];
+frozenmemory = [];
+
+for (let i = 0; i < memoryAddresses.length; i++) {
+  if (memoryAddresses[i].value === 100) {
+    frozenmemory.push({ ...memoryAddresses[i], value: 9999, frozen: true });
+  } else {
+    frozenmemory.push({ ...memoryAddresses[i] }); // Keeps 50 and 25 in the new array
+  }
+}
+console.log(frozenmemory);
+
+// 01
+
+// Primitive values vs Reference types
+let playerA = 100;
+let playerB = playerA;
+console.log("Primitive Copy:", playerB);
+
+let playerA1 = { hp: 10, ammo: 60 };
+let playerB1 = playerA1;
+playerB1.hp = 89;
+playerB1.ammo = 0;
+console.log("Mutated Reference:", playerA1);
+
+// Shallow copy using Spread Operator vs Deep Copy using structuredClone
+let playerAObj = { ammo: 50, stat: { hp: 10 } };
+let playerBObj = { ...playerAObj, lvl: 5 };
+playerBObj.stat.hp = 4; // Shallow copy mutates nested properties
+
+const deepPlayer = structuredClone(playerAObj);
+deepPlayer.stat.hp = 89;
+deepPlayer.ammo = 0;
+
+console.log("Deep Copy:", deepPlayer);
+console.log("Original Object:", playerAObj);
+
+//02
+const memoryAddresses = [
+  { address: "0x001", value: 100 },
+  { address: "0x002", value: 45 },
+  { address: "0x003", value: 100 },
+  { address: "0x004", value: 12 },
+];
+
+// Array filter
+let filter = memoryAddresses.filter((entry) => entry.address === "0x003");
+console.log("Filtered Address:", filter);
+
+// Index-based loop traversal
+for (let i = 0; i < memoryAddresses.length; i++) {
+  if (memoryAddresses[i].value === 12) {
+    console.log("Found target value via loop:", memoryAddresses[i]);
+  }
+}
+
+//03
+const memoryAddresses = [
+  { address: "0x001", value: 100 },
+  { address: "0x002", value: 50 },
+  { address: "0x003", value: 100 },
+  { address: "0x004", value: 25 },
+];
+
+const frozenmemory = [];
+
+// Non-mutating state update
+for (let i = 0; i < memoryAddresses.length; i++) {
+  if (memoryAddresses[i].value === 100) {
+    frozenmemory.push({ ...memoryAddresses[i], value: 9999, frozen: true });
+  } else {
+    frozenmemory.push({ ...memoryAddresses[i] });
+  }
+}
+
+console.log("Frozen Memory (New Array):", frozenmemory);
+console.log("Original Memory (Untouched):", memoryAddresses);
+
+//04
+async function fetchplayerstats(playerID){
+    if(playerID===1){
+        let data={id:1,name:'googler'};
+        let testing=45
+        let testing2=[1,5,8,{id:15,lvl:85}]
+        let testing3={home:false,dick:true}
+        return {data,testing,testing2,testing3}
+    }else{
+        throw new Error("no data found");
+        
+    }
+}
+async function main() {
+    try {
+        let data= await fetchplayerstats(1)
+        console.log('plater stats',data.data)
+        console.log(data.testing,data.testing2,data.testing3)
+    } catch (error) {
+        console.log('fuck it')
+    }
+}
+main()
+
+//05
+const players = [
+  { id: 1, username: "saad", score: 150 },
+  { id: 2, username: "ghost", score: 300 },
+  { id: 3, username: "viper", score: 450 }
+];
+
+let topscorrer=players.filter(function(num) {
+    return num.score>200
+})
+console.log(topscorrer)
+const players = [
+  { id: 1, username: "saad", score: 150 },
+  { id: 2, username: "ghost", score: 300 },
+  { id: 3, username: "viper", score: 450 }
+];
+
+let modify=players.map((num)=>{
+    if(num.score>200){
+        return{...num,isVIP:true}
+    }else{
+        return {...num,isVIP:false}
+    }
+})
+console.log(modify)
+console.log(players)
+
+
+const players = [
+  { id: 1, username: "saad", score: 150 },
+  { id: 2, username: "ghost", score: 300 },
+  { id: 3, username: "viper", score: 450 }
+];
+
+const total=players.filter(num=>num.score>200)
+.map(num=>num.score)
+.reduce((acc,standing)=>acc+standing,0);
+console.log(total)
+
+//06
+async function getrealusers(params) {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await response.json();
+    let filteruser = data
+      .filter((user) => user.id <= 3)
+      .map((user) => ({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        companyName: user.company.name,
+        city:user.address.city,
+        geo:user.address.geo
+      }));
+    console.log(filteruser);
+  } catch (error) {
+    console.log("sorrry");
+  }
+}   
+getrealusers();
+
+//07
+function playervault() {
+  let gold = 40;
+  return {
+    addgold: function name(addgold) {
+      return (gold = gold + addgold);
+    },
+    spendgold: function (spendgold) {
+      if (spendgold <= gold) {
+        return (gold = gold - spendgold);
+      } else {
+        return "not enough poor";
+      }
+    },
+  };
+}
+
+const result = playervault();
+console.log(result.addgold(50));
+console.log(result.spendgold(67));
+
+
+// function createinventoryvault(stocknumber){
+//     let stock=stocknumber
+//         return {addstock(plusstock) {
+//             return stock=stock+plusstock
+//         },removestock(minusstock) {
+//             if(minusstock<=stock){
+//                 return stock=stock-minusstock
+//             }else{
+//                 return ('not enough stock')
+//             }
+//         },getstock() {
+//             return stock
+//         }}
+//     }
+// let check=createinventoryvault(10)
+// console.log('total after adding',check.addstock(20))
+// console.log('total after subtract',check.removestock(10))
+// console.log('final',check.getstock())
+
+// // another
+// const orders = [
+//   { id: 101, category: "electronics", price: 300, delivered: true },
+//   { id: 102, category: "clothing", price: 50, delivered: true },
+//   { id: 103, category: "electronics", price: 150, delivered: false },
+//   { id: 104, category: "electronics", price: 500, delivered: true },
+//   { id: 105, category: "clothing", price: 120, delivered: true },
+// ];
+
+// let test = orders
+//   .filter(num => num.category === "electronics" && num.delivered)
+//   .map(user => ({...user,price:user.price*0.9}))
+//   .reduce((acc, current) => acc +current.price ,0);
+// console.log(test);
+
+// //another
+
+// async function userposts(userID) {
+//   try {
+//     let response= await fetch("https://jsonplaceholder.typicode.com/posts");
+//     let data= await response.json()
+//     let cleardata=data.filter(post=>post.userId===userID).map(post=>({id: post.id, title: post.title}))
+//     console.log(cleardata)
+//   } catch (error) {
+//     return ('error')
+//   }
+// }
+// userposts(1)
+let text='';
+for (let i = 5; i>=0; i--) {
+  text=text+'*';
+  console.log(text);
+}
+
+node phase 2 
+
+//01
+console.log('1');
+setTimeout(() => {
+      console.log('2')    
+}, 0);
+
+Promise.resolve().then(()=>{
+    console.log('3')
+})
+console.log('4');
+
